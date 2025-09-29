@@ -1,256 +1,226 @@
-// Birthday Celebration App JavaScript
+// AEP Spectrum Prototype - Rapid UI Prototyping Tool
 
-class BirthdayApp {
+class AEPPrototype {
     constructor() {
-        this.nameInput = document.getElementById('nameInput');
-        this.celebrateBtn = document.getElementById('celebrateBtn');
-        this.personalMessage = document.getElementById('personalMessage');
-        this.birthdayMessage = document.getElementById('birthdayMessage');
-        this.confettiContainer = document.getElementById('confettiContainer');
-        this.cake = document.querySelector('.cake');
+        this.screenshotInput = document.getElementById('screenshotInput');
+        this.uploadBtn = document.getElementById('uploadBtn');
+        this.fileInfo = document.getElementById('fileInfo');
+        this.welcomeMessage = document.getElementById('welcomeMessage');
+        this.prototypeMessage = document.getElementById('prototypeMessage');
+        this.progressContainer = document.getElementById('progressContainer');
+        this.aiTools = document.querySelectorAll('.ai-tool');
         
-        this.birthdayMessages = [
-            "Hope your special day brings you lots of happiness, love, and fun!",
-            "Wishing you a day filled with happiness and a year filled with joy!",
-            "May your birthday be filled with laughter, love, and all your favorite things!",
-            "Here's to another year of amazing adventures and wonderful memories!",
-            "Sending you smiles for every moment of your special day!",
-            "Hope your birthday is as wonderful and special as you are!",
-            "May all your dreams and wishes come true on your birthday!",
-            "Wishing you health, happiness, and prosperity in the year ahead!"
+        this.processingSteps = [
+            "Analyzing screenshot...",
+            "Extracting UI components...",
+            "Generating code structure...",
+            "Applying AI-based styling...",
+            "Optimizing for AEP Spectrum...",
+            "Finalizing prototype..."
         ];
         
         this.init();
     }
     
     init() {
-        this.celebrateBtn.addEventListener('click', () => this.celebrate());
-        this.nameInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                this.celebrate();
-            }
+        this.uploadBtn.addEventListener('click', () => this.screenshotInput.click());
+        this.screenshotInput.addEventListener('change', (e) => this.handleScreenshotUpload(e));
+        
+        // Add hover effects to AI tools
+        this.aiTools.forEach(tool => {
+            tool.addEventListener('mouseenter', () => this.highlightTool(tool));
+            tool.addEventListener('mouseleave', () => this.unhighlightTool(tool));
         });
         
-        // Add some initial sparkle
-        this.addSparkleEffect();
+        // Add some initial animation
+        this.addInitialAnimation();
     }
     
-    celebrate() {
-        const name = this.nameInput.value.trim();
-        
-        if (name) {
-            this.updateMessage(name);
-            this.createConfetti();
-            this.playCelebrationAnimation();
-            this.playBirthdaySound();
-            this.nameInput.value = '';
-        } else {
-            this.showAlert();
+    handleScreenshotUpload(event) {
+        const file = event.target.files[0];
+        if (file) {
+            this.displayFileInfo(file);
+            this.simulatePrototypingProcess();
         }
     }
     
-    updateMessage(name) {
-        const randomMessage = this.birthdayMessages[Math.floor(Math.random() * this.birthdayMessages.length)];
-        this.personalMessage.textContent = `Happy Birthday, ${name}! 🎉`;
-        this.birthdayMessage.querySelector('p').textContent = randomMessage;
-        
-        // Add celebration class for animation
-        this.birthdayCard = document.querySelector('.birthday-card');
-        this.birthdayCard.classList.add('celebration');
-        
-        setTimeout(() => {
-            this.birthdayCard.classList.remove('celebration');
-        }, 600);
-    }
-    
-    createConfetti() {
-        // Clear existing confetti
-        this.confettiContainer.innerHTML = '';
-        
-        // Create confetti pieces
-        for (let i = 0; i < 50; i++) {
-            setTimeout(() => {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.animationDelay = Math.random() * 2 + 's';
-                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                
-                // Random shapes
-                const shapes = ['circle', 'square', 'triangle'];
-                const shape = shapes[Math.floor(Math.random() * shapes.length)];
-                
-                if (shape === 'circle') {
-                    confetti.style.borderRadius = '50%';
-                } else if (shape === 'triangle') {
-                    confetti.style.width = '0';
-                    confetti.style.height = '0';
-                    confetti.style.borderLeft = '5px solid transparent';
-                    confetti.style.borderRight = '5px solid transparent';
-                    confetti.style.borderBottom = '10px solid ' + confetti.style.background;
-                    confetti.style.background = 'transparent';
-                }
-                
-                this.confettiContainer.appendChild(confetti);
-                
-                // Remove confetti after animation
-                setTimeout(() => {
-                    if (confetti.parentNode) {
-                        confetti.parentNode.removeChild(confetti);
-                    }
-                }, 5000);
-            }, i * 50);
-        }
-    }
-    
-    playCelebrationAnimation() {
-        // Cake animation
-        this.cake.style.animation = 'none';
-        setTimeout(() => {
-            this.cake.style.animation = 'wiggle 0.5s ease-in-out 3';
-        }, 10);
-        
-        // Title bounce
-        const title = document.querySelector('.birthday-title');
-        title.style.animation = 'none';
-        setTimeout(() => {
-            title.style.animation = 'bounce 0.6s ease-in-out 3';
-        }, 10);
-    }
-    
-    playBirthdaySound() {
-        // Create a simple beep sound using Web Audio API
-        try {
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            // Play a happy birthday melody
-            const notes = [523.25, 523.25, 659.25, 523.25, 783.99, 698.46]; // C, C, E, C, G, F
-            let currentNote = 0;
-            
-            const playNote = () => {
-                if (currentNote < notes.length) {
-                    oscillator.frequency.setValueAtTime(notes[currentNote], audioContext.currentTime);
-                    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-                    
-                    currentNote++;
-                    setTimeout(playNote, 300);
-                } else {
-                    oscillator.stop();
-                }
-            };
-            
-            oscillator.start();
-            playNote();
-        } catch (error) {
-            console.log('Audio not supported or blocked by browser');
-        }
-    }
-    
-    showAlert() {
-        // Create a temporary alert message
-        const alert = document.createElement('div');
-        alert.textContent = 'Please enter your name first!';
-        alert.style.cssText = `
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ff6b6b;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            z-index: 1000;
-            animation: fadeInUp 0.5s ease;
+    displayFileInfo(file) {
+        this.fileInfo.innerHTML = `
+            <div class="file-details">
+                <strong>📁 ${file.name}</strong><br>
+                <small>Size: ${(file.size / 1024).toFixed(1)} KB</small><br>
+                <small>Type: ${file.type}</small>
+            </div>
         `;
-        
-        document.body.appendChild(alert);
-        
-        setTimeout(() => {
-            alert.remove();
-        }, 3000);
+        this.fileInfo.style.display = 'block';
     }
     
-    addSparkleEffect() {
-        // Add some sparkles around the cake
-        for (let i = 0; i < 6; i++) {
-            const sparkle = document.createElement('div');
-            sparkle.style.cssText = `
-                position: absolute;
-                width: 4px;
-                height: 4px;
-                background: #FFD700;
-                border-radius: 50%;
-                animation: sparkle 2s ease-in-out infinite;
-                animation-delay: ${i * 0.3}s;
-            `;
-            
-            const angle = (i * 60) * Math.PI / 180;
-            const radius = 80;
-            sparkle.style.left = (50 + Math.cos(angle) * radius) + 'px';
-            sparkle.style.top = (50 + Math.sin(angle) * radius) + 'px';
-            
-            this.cake.appendChild(sparkle);
-        }
+    simulatePrototypingProcess() {
+        this.updateMessage("Processing your screenshot...", "AI is analyzing your design and generating a prototype.");
+        this.showProgress();
         
-        // Add sparkle animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes sparkle {
-                0%, 100% { opacity: 0; transform: scale(0); }
-                50% { opacity: 1; transform: scale(1); }
+        let currentStep = 0;
+        const processInterval = setInterval(() => {
+            if (currentStep < this.processingSteps.length) {
+                this.updateProgressStep(this.processingSteps[currentStep], currentStep);
+                currentStep++;
+            } else {
+                clearInterval(processInterval);
+                this.completePrototyping();
             }
-        `;
-        document.head.appendChild(style);
+        }, 1500);
     }
-}
-
-// Initialize the app when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    new BirthdayApp();
-});
-
-// Add some extra fun - click anywhere to create mini confetti
-document.addEventListener('click', (e) => {
-    if (e.target.closest('.birthday-card')) {
-        const miniConfetti = document.createElement('div');
-        miniConfetti.style.cssText = `
+    
+    updateMessage(title, description) {
+        this.welcomeMessage.textContent = title;
+        this.prototypeMessage.querySelector('p').textContent = description;
+        
+        // Add processing animation
+        this.prototypeCard = document.querySelector('.prototype-card');
+        this.prototypeCard.classList.add('processing');
+        
+        setTimeout(() => {
+            this.prototypeCard.classList.remove('processing');
+        }, 300);
+    }
+    
+    showProgress() {
+        this.progressContainer.innerHTML = `
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Starting...</div>
+        `;
+        this.progressContainer.style.display = 'block';
+    }
+    
+    updateProgressStep(stepText, stepIndex) {
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+        
+        const progress = ((stepIndex + 1) / this.processingSteps.length) * 100;
+        progressFill.style.width = progress + '%';
+        progressText.textContent = stepText;
+        
+        // Add step animation
+        this.animateStep(stepIndex);
+    }
+    
+    animateStep(stepIndex) {
+        const tool = this.aiTools[stepIndex % this.aiTools.length];
+        tool.classList.add('active');
+        
+        setTimeout(() => {
+            tool.classList.remove('active');
+        }, 1000);
+    }
+    
+    completePrototyping() {
+        this.updateMessage("Prototype Generated! 🎉", "Your UI prototype is ready for fine-tuning and iteration.");
+        
+        // Show completion animation
+        this.showCompletionAnimation();
+        
+        // Reset after 3 seconds
+        setTimeout(() => {
+            this.resetInterface();
+        }, 5000);
+    }
+    
+    showCompletionAnimation() {
+        // Create success particles
+        for (let i = 0; i < 20; i++) {
+            setTimeout(() => {
+                this.createSuccessParticle();
+            }, i * 100);
+        }
+        
+        // Animate all tools
+        this.aiTools.forEach((tool, index) => {
+            setTimeout(() => {
+                tool.classList.add('success');
+            }, index * 200);
+        });
+    }
+    
+    createSuccessParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'success-particle';
+        particle.style.cssText = `
             position: absolute;
             width: 6px;
             height: 6px;
-            background: ${['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#6c5ce7'][Math.floor(Math.random() * 5)]};
+            background: #4CAF50;
             border-radius: 50%;
             pointer-events: none;
-            left: ${e.clientX}px;
-            top: ${e.clientY}px;
-            animation: miniConfetti 1s ease-out forwards;
+            left: ${Math.random() * 100}%;
+            top: ${Math.random() * 100}%;
+            animation: successParticle 2s ease-out forwards;
         `;
         
-        document.body.appendChild(miniConfetti);
+        document.querySelector('.prototype-card').appendChild(particle);
         
         setTimeout(() => {
-            miniConfetti.remove();
-        }, 1000);
+            particle.remove();
+        }, 2000);
     }
+    
+    resetInterface() {
+        this.fileInfo.style.display = 'none';
+        this.progressContainer.style.display = 'none';
+        this.screenshotInput.value = '';
+        this.updateMessage("Ready for Next Prototype", "Upload another screenshot to continue prototyping.");
+        
+        // Reset tools
+        this.aiTools.forEach(tool => {
+            tool.classList.remove('active', 'success');
+        });
+    }
+    
+    highlightTool(tool) {
+        tool.style.transform = 'scale(1.1)';
+        tool.style.transition = 'transform 0.3s ease';
+    }
+    
+    unhighlightTool(tool) {
+        tool.style.transform = 'scale(1)';
+    }
+    
+    addInitialAnimation() {
+        // Add subtle floating animation to tools
+        this.aiTools.forEach((tool, index) => {
+            tool.style.animation = `float 3s ease-in-out infinite`;
+            tool.style.animationDelay = `${index * 0.5}s`;
+        });
+    }
+}
+
+// Initialize the prototype tool when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    new AEPPrototype();
 });
 
-// Add mini confetti animation
-const miniStyle = document.createElement('style');
-miniStyle.textContent = `
-    @keyframes miniConfetti {
+// Add success particle animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes successParticle {
         0% {
             transform: translateY(0) scale(1);
             opacity: 1;
         }
         100% {
-            transform: translateY(-50px) scale(0);
+            transform: translateY(-100px) scale(0);
             opacity: 0;
         }
     }
+    
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
 `;
-document.head.appendChild(miniStyle);
+document.head.appendChild(style);

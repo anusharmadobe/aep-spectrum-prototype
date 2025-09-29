@@ -3,28 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎉 Happy Birthday! 🎉</title>
+    <title>AEP Spectrum Prototype - Rapid UI Prototyping</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <div class="birthday-card">
-            <h1 class="birthday-title">🎂 Happy Birthday! 🎂</h1>
-            <div class="name-input">
-                <input type="text" id="nameInput" placeholder="Enter your name" maxlength="20">
-                <button id="celebrateBtn">Celebrate!</button>
+        <div class="prototype-card">
+            <h1 class="prototype-title">🚀 AEP Spectrum Prototype</h1>
+            <div class="upload-section">
+                <input type="file" id="screenshotInput" accept="image/*" style="display: none;">
+                <button id="uploadBtn" class="upload-button">📸 Upload Screenshot</button>
+                <div class="file-info" id="fileInfo"></div>
             </div>
-            <div class="birthday-message" id="birthdayMessage">
-                <h2 id="personalMessage">Welcome!</h2>
-                <p>Click the button above to start your birthday celebration!</p>
+            <div class="prototype-message" id="prototypeMessage">
+                <h2 id="welcomeMessage">Welcome to Rapid Prototyping!</h2>
+                <p>Upload a screenshot to start building and fine-tuning your UI with AI-based tooling.</p>
             </div>
-            <div class="cake-container">
-                <div class="cake">
-                    <div class="candle"></div>
-                    <div class="flame"></div>
+            <div class="ai-tools-container">
+                <div class="ai-tool">
+                    <div class="tool-icon">🤖</div>
+                    <div class="tool-label">AI Analysis</div>
+                </div>
+                <div class="ai-tool">
+                    <div class="tool-icon">🎨</div>
+                    <div class="tool-label">UI Generation</div>
+                </div>
+                <div class="ai-tool">
+                    <div class="tool-icon">⚡</div>
+                    <div class="tool-label">Rapid Iteration</div>
                 </div>
             </div>
-            <div class="confetti-container" id="confettiContainer"></div>
+            <div class="progress-container" id="progressContainer"></div>
         </div>
     </div>
     <script src="script.js"></script>

@@ -1,14 +1,14 @@
 {
-  "name": "birthday-celebration-app",
+  "name": "aep-spectrum-prototype",
   "version": "1.0.0",
-  "description": "A delightful birthday celebration app with confetti, animations, and music",
+  "description": "Rapid prototyping tool for AEP Spectrum - Build and fine-tune UI from screenshots using AI-based tooling",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js"
   },
-  "keywords": ["birthday", "celebration", "confetti", "animation", "web-app"],
-  "author": "Birthday App Creator",
+  "keywords": ["aep", "spectrum", "prototyping", "ui", "ai", "rapid-prototype", "screenshot"],
+  "author": "Anurag Sharma",
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2"
