@@ -1,0 +1,358 @@
+{
+  "platform": "Adobe Experience Platform",
+  "version": "2.0",
+  "description": "Enhanced Information Architecture with UI Placement and Flow for Adobe Experience Platform Sources Interface",
+  "url": "experience.adobe.com/#/@aepstreamingservices/sname:prod/platform/source/catalog",
+  "environment": "Production (VA7)",
+  "viewport": {
+    "width": "1920px",
+    "height": "1080px",
+    "responsive_breakpoints": ["mobile", "tablet", "desktop"]
+  },
+  "layout_zones": {
+    "header": {
+      "position": "fixed_top",
+      "height": "64px",
+      "z_index": 1000,
+      "background": "white",
+      "border_bottom": "1px solid #e0e0e0",
+      "elements": {
+        "search_bar": {
+          "position": "center_left",
+          "width": "400px",
+          "height": "40px",
+          "placeholder": "Search Experience Cloud (⌘+/)",
+          "border_radius": "20px",
+          "background": "#f5f5f5"
+        },
+        "environment_indicator": {
+          "position": "center_right",
+          "content": "Prod Prod (VA7)",
+          "background": "#00a86b",
+          "color": "white",
+          "padding": "4px 12px",
+          "border_radius": "4px"
+        },
+        "action_icons": {
+          "position": "far_right",
+          "spacing": "16px",
+          "icons": ["notifications", "help", "user_profile"]
+        }
+      }
+    },
+    "sidebar": {
+      "position": "fixed_left",
+      "width": "280px",
+      "height": "100vh",
+      "background": "#2c2c2c",
+      "color": "white",
+      "z_index": 999,
+      "scroll_behavior": "smooth",
+      "sections": {
+        "logo": {
+          "position": "top",
+          "height": "64px",
+          "padding": "16px",
+          "border_bottom": "1px solid #404040"
+        },
+        "navigation": {
+          "position": "below_logo",
+          "padding": "16px 0",
+          "items": [
+            {
+              "name": "Home",
+              "position": "row_1",
+              "icon": "home",
+              "indent": 0
+            },
+            {
+              "name": "Workflows",
+              "position": "row_2",
+              "icon": "workflow",
+              "indent": 0
+            },
+            {
+              "name": "Dashboards",
+              "position": "row_3",
+              "icon": "dashboard",
+              "indent": 0
+            },
+            {
+              "name": "Use Case Playbooks",
+              "position": "row_4",
+              "icon": "playbook",
+              "indent": 0
+            },
+            {
+              "name": "Playbooks",
+              "position": "row_5",
+              "icon": "playbook",
+              "indent": 0
+            },
+            {
+              "name": "Connections",
+              "position": "row_6",
+              "icon": "connection",
+              "indent": 0
+            },
+            {
+              "name": "Sources",
+              "position": "row_7",
+              "icon": "source",
+              "indent": 0,
+              "selected": true,
+              "background": "#404040",
+              "subsections": [
+                {
+                  "name": "All sources",
+                  "position": "row_7_sub_1",
+                  "indent": 16,
+                  "selected": true
+                },
+                {
+                  "name": "My sources",
+                  "position": "row_7_sub_2",
+                  "indent": 16,
+                  "selected": false
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "main_content": {
+      "position": "right_of_sidebar",
+      "margin_left": "280px",
+      "padding": "24px",
+      "background": "#f8f9fa",
+      "min_height": "calc(100vh - 64px)",
+      "sections": {
+        "page_header": {
+          "position": "top",
+          "margin_bottom": "24px",
+          "elements": {
+            "title": {
+              "content": "Sources",
+              "font_size": "32px",
+              "font_weight": "bold",
+              "color": "#333"
+            },
+            "tabs": {
+              "position": "below_title",
+              "margin_top": "16px",
+              "border_bottom": "1px solid #e0e0e0",
+              "items": [
+                {
+                  "name": "Catalog",
+                  "position": "tab_1",
+                  "selected": true,
+                  "border_bottom": "2px solid #0073e6",
+                  "color": "#0073e6"
+                },
+                {
+                  "name": "Dataflows",
+                  "position": "tab_2",
+                  "selected": false
+                },
+                {
+                  "name": "Accounts",
+                  "position": "tab_3",
+                  "selected": false
+                },
+                {
+                  "name": "Key Pairs",
+                  "position": "tab_4",
+                  "selected": false
+                },
+                {
+                  "name": "System view",
+                  "position": "tab_5",
+                  "selected": false
+                }
+              ]
+            }
+          }
+        },
+        "content_area": {
+          "position": "below_header",
+          "layout": "two_column",
+          "gap": "24px",
+          "left_column": {
+            "width": "25%",
+            "min_width": "200px",
+            "title": {
+              "content": "CATEGORIES",
+              "font_size": "14px",
+              "font_weight": "bold",
+              "color": "#666",
+              "margin_bottom": "16px",
+              "text_transform": "uppercase"
+            },
+            "categories": {
+              "position": "vertical_list",
+              "spacing": "8px",
+              "items": [
+                {
+                  "name": "Adobe applications",
+                  "position": "category_1",
+                  "selected": true,
+                  "background": "#e3f2fd",
+                  "color": "#1976d2",
+                  "padding": "8px 12px",
+                  "border_radius": "4px"
+                },
+                {
+                  "name": "Advertising",
+                  "position": "category_2",
+                  "selected": false,
+                  "padding": "8px 12px",
+                  "hover_effect": true
+                }
+              ]
+            }
+          },
+          "right_column": {
+            "width": "75%",
+            "title": "Adobe applications",
+            "layout": "grid",
+            "grid_columns": 3,
+            "gap": "16px",
+            "applications": {
+              "position": "grid_items",
+              "card_style": {
+                "background": "white",
+                "border": "1px solid #e0e0e0",
+                "border_radius": "8px",
+                "padding": "20px",
+                "box_shadow": "0 2px 4px rgba(0,0,0,0.1)",
+                "hover_effect": "elevate"
+              },
+              "items": [
+                {
+                  "name": "Adobe Analytics",
+                  "position": "grid_1_1",
+                  "action_button": {
+                    "text": "Add data",
+                    "position": "bottom_right",
+                    "background": "#0073e6",
+                    "color": "white",
+                    "padding": "8px 16px",
+                    "border_radius": "4px"
+                  }
+                },
+                {
+                  "name": "Adobe Audience Manager",
+                  "position": "grid_1_2",
+                  "action_button": {
+                    "text": "Set up",
+                    "position": "bottom_right",
+                    "background": "#0073e6",
+                    "color": "white",
+                    "padding": "8px 16px",
+                    "border_radius": "4px"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "user_flow": {
+    "entry_points": [
+      {
+        "action": "click_sidebar_sources",
+        "destination": "sources_catalog",
+        "transition": "smooth_slide"
+      },
+      {
+        "action": "search_platform",
+        "destination": "search_results",
+        "transition": "fade_in"
+      }
+    ],
+    "navigation_patterns": [
+      {
+        "pattern": "category_filtering",
+        "flow": [
+          "user_clicks_category",
+          "category_highlights",
+          "applications_filter",
+          "grid_updates"
+        ]
+      },
+      {
+        "pattern": "application_setup",
+        "flow": [
+          "user_clicks_application_card",
+          "modal_opens",
+          "setup_wizard_starts",
+          "configuration_form"
+        ]
+      }
+    ],
+    "interaction_states": {
+      "hover": {
+        "card_elevation": "2px shadow increase",
+        "button_highlight": "background color change"
+      },
+      "selected": {
+        "category_background": "#e3f2fd",
+        "tab_border": "2px solid #0073e6"
+      },
+      "loading": {
+        "skeleton_cards": "gray placeholders",
+        "spinner": "center of content area"
+      }
+    }
+  },
+  "responsive_behavior": {
+    "mobile": {
+      "sidebar": "collapsed_to_hamburger",
+      "main_content": "full_width",
+      "grid_columns": 1,
+      "padding": "16px"
+    },
+    "tablet": {
+      "sidebar": "collapsible",
+      "grid_columns": 2,
+      "padding": "20px"
+    },
+    "desktop": {
+      "sidebar": "always_visible",
+      "grid_columns": 3,
+      "padding": "24px"
+    }
+  },
+  "visual_hierarchy": {
+    "typography": {
+      "page_title": "32px bold",
+      "section_titles": "18px semibold",
+      "category_labels": "14px bold uppercase",
+      "card_titles": "16px medium",
+      "body_text": "14px regular"
+    },
+    "spacing": {
+      "section_gap": "24px",
+      "card_padding": "20px",
+      "button_padding": "8px 16px",
+      "grid_gap": "16px"
+    },
+    "colors": {
+      "primary": "#0073e6",
+      "secondary": "#666666",
+      "background": "#f8f9fa",
+      "card_background": "white",
+      "selected_background": "#e3f2fd"
+    }
+  },
+  "accessibility": {
+    "keyboard_navigation": true,
+    "focus_indicators": true,
+    "aria_labels": true,
+    "screen_reader_support": true,
+    "color_contrast": "WCAG AA compliant"
+  }
+}

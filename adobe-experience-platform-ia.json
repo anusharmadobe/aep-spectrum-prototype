@@ -1,0 +1,303 @@
+{
+  "platform": "Adobe Experience Platform",
+  "version": "1.0",
+  "description": "Information Architecture for Adobe Experience Platform Sources Interface",
+  "url": "experience.adobe.com/#/@aepstreamingservices/sname:prod/platform/source/catalog",
+  "environment": "Production (VA7)",
+  "navigation": {
+    "header": {
+      "search": {
+        "placeholder": "Search Experience Cloud",
+        "shortcut": "⌘+/"
+      },
+      "environment": "Prod Prod (VA7)",
+      "notifications": true,
+      "help": true,
+      "user_profile": true
+    },
+    "sidebar": {
+      "logo": "A Adobe Experience Platform",
+      "hamburger_menu": true,
+      "main_sections": [
+        {
+          "name": "Home",
+          "type": "navigation_item"
+        },
+        {
+          "name": "Workflows",
+          "type": "navigation_item"
+        },
+        {
+          "name": "Dashboards",
+          "type": "navigation_item"
+        },
+        {
+          "name": "Use Case Playbooks",
+          "type": "navigation_item"
+        },
+        {
+          "name": "Playbooks",
+          "type": "navigation_item"
+        },
+        {
+          "name": "Connections",
+          "type": "navigation_item"
+        },
+        {
+          "name": "Sources",
+          "type": "navigation_item",
+          "selected": true,
+          "subsections": [
+            {
+              "name": "All sources",
+              "selected": true
+            },
+            {
+              "name": "My sources",
+              "selected": false
+            }
+          ]
+        },
+        {
+          "name": "Destinations",
+          "type": "navigation_item"
+        },
+        {
+          "name": "Customer",
+          "type": "navigation_item"
+        },
+        {
+          "name": "Profiles",
+          "type": "navigation_item"
+        },
+        {
+          "name": "Audiences",
+          "type": "navigation_item"
+        },
+        {
+          "name": "Identities",
+          "type": "navigation_item"
+        },
+        {
+          "name": "Prospects",
+          "type": "navigation_item"
+        },
+        {
+          "name": "Privacy",
+          "type": "navigation_item"
+        },
+        {
+          "name": "Policies",
+          "type": "navigation_item"
+        },
+        {
+          "name": "Requests",
+          "type": "navigation_item"
+        },
+        {
+          "name": "Audits",
+          "type": "navigation_item"
+        },
+        {
+          "name": "Data Lifecycle",
+          "type": "navigation_item"
+        },
+        {
+          "name": "Data Science",
+          "type": "navigation_item"
+        }
+      ]
+    }
+  },
+  "main_content": {
+    "title": "Sources",
+    "tabs": [
+      {
+        "name": "Catalog",
+        "selected": true
+      },
+      {
+        "name": "Dataflows",
+        "selected": false
+      },
+      {
+        "name": "Accounts",
+        "selected": false
+      },
+      {
+        "name": "Key Pairs",
+        "selected": false
+      },
+      {
+        "name": "System view",
+        "selected": false
+      }
+    ],
+    "search": {
+      "placeholder": "Search sources",
+      "location": "catalog_view"
+    },
+    "layout": {
+      "type": "two_column",
+      "left_column": {
+        "title": "CATEGORIES",
+        "categories": [
+          {
+            "name": "Adobe applications",
+            "selected": true,
+            "type": "category"
+          },
+          {
+            "name": "Advertising",
+            "selected": false,
+            "type": "category"
+          },
+          {
+            "name": "Analytics",
+            "selected": false,
+            "type": "category"
+          },
+          {
+            "name": "Cloud storage",
+            "selected": false,
+            "type": "category"
+          },
+          {
+            "name": "Consent & Preferences",
+            "selected": false,
+            "type": "category"
+          },
+          {
+            "name": "CRM",
+            "selected": false,
+            "type": "category"
+          },
+          {
+            "name": "Customer success",
+            "selected": false,
+            "type": "category"
+          },
+          {
+            "name": "Databases",
+            "selected": false,
+            "type": "category"
+          },
+          {
+            "name": "Data & Identity Partners",
+            "selected": false,
+            "type": "category"
+          },
+          {
+            "name": "eCommerce",
+            "selected": false,
+            "type": "category"
+          },
+          {
+            "name": "Local system",
+            "selected": false,
+            "type": "category"
+          },
+          {
+            "name": "Marketing automation",
+            "selected": false,
+            "type": "category"
+          },
+          {
+            "name": "Payments",
+            "selected": false,
+            "type": "category"
+          },
+          {
+            "name": "Protocols",
+            "selected": false,
+            "type": "category"
+          },
+          {
+            "name": "Streaming",
+            "selected": false,
+            "type": "category"
+          }
+        ]
+      },
+      "right_column": {
+        "type": "application_grid",
+        "sections": [
+          {
+            "title": "Adobe applications",
+            "applications": [
+              {
+                "name": "Adobe Analytics",
+                "action_button": "Add data",
+                "status": "available"
+              },
+              {
+                "name": "Adobe Audience Manager",
+                "action_button": "Set up",
+                "status": "available"
+              },
+              {
+                "name": "Adobe Campaign Managed Services",
+                "action_button": "Set up",
+                "status": "available"
+              },
+              {
+                "name": "Adobe Data Collection",
+                "action_button": "Add data",
+                "status": "available"
+              },
+              {
+                "name": "Customer Attributes",
+                "action_button": "Add data",
+                "status": "available"
+              },
+              {
+                "name": "Marketo Engage",
+                "action_button": "Set up",
+                "status": "available"
+              }
+            ]
+          },
+          {
+            "title": "Advertising",
+            "applications": [
+              {
+                "name": "Google Ads (Beta)",
+                "action_button": "Set up",
+                "status": "beta"
+              }
+            ]
+          },
+          {
+            "title": "Analytics",
+            "applications": [
+              {
+                "name": "Additional analytics applications",
+                "status": "partially_visible"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "ui_patterns": {
+    "card_based_layout": true,
+    "two_column_navigation": true,
+    "tabbed_interface": true,
+    "search_functionality": true,
+    "action_buttons": true,
+    "category_filtering": true
+  },
+  "interaction_states": {
+    "selected_categories": ["Adobe applications"],
+    "active_tab": "Catalog",
+    "search_enabled": true,
+    "filtering_enabled": true
+  },
+  "metadata": {
+    "created_date": "2024",
+    "source": "Adobe Experience Platform Screenshot Analysis",
+    "interface_type": "Enterprise Data Management Platform",
+    "primary_purpose": "Data source integration and management"
+  }
+}
