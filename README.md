@@ -49,9 +49,6 @@ This tool addresses the need for rapid prototyping in the AEP ecosystem by:
 4. **Open your browser**
    Navigate to `http://localhost:3000`
 
-### Alternative: Direct File Access
-You can also open `index.html` directly in your browser for a quick preview.
-
 ## 🎮 How to Use
 
 1. **Upload Screenshot** - Click the upload button and select your design screenshot in Cursor IDE
